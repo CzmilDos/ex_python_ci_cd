@@ -10,6 +10,7 @@ from run import create_total_petal_column
 import numpy as np
 import pandas as pd
 
+
 def test_import_data():
     """
     Test
@@ -25,6 +26,7 @@ def test_rename_columns():
     data = import_data()
     data_renamed = rename_columns(data)
     assert "sepal_length" in data_renamed.columns
+
 
 def test_sample_data():
     # Crée un DataFrame de test avec 100 lignes
@@ -42,6 +44,7 @@ def test_sample_data():
     # Vérifie que le nombre de lignes dans l'échantillon est égal à sample_size
     assert len(sampled_data) == 50, f"La taille de l'échantillon devrait être de 50, mais elle est de {len(sampled_data)}."
 
+
 def test_multiply_dataset():
     # Crée un DataFrame de test avec 50 lignes
     test_data = pd.DataFrame({
@@ -57,7 +60,8 @@ def test_multiply_dataset():
 
     # Vérifie que le nombre de lignes dans le DataFrame multiplié est correct
     expected_rows = len(test_data) * 3
-    assert len(multiplied_data) == expected_rows, f"La taille du DataFrame multiplié devrait être de {expected_rows}, mais elle est de {len(multiplied_data)}."
+    assert len(multiplied_data) == expected_rows, f"taille expérée: {expected_rows}, obtenue: {len(multiplied_data)}."
+
 
 def test_create_total_sepal_column():
     # Crée un DataFrame de test avec 50 lignes
@@ -77,7 +81,8 @@ def test_create_total_sepal_column():
 
     # Vérifie que les valeurs dans la colonne "total_sepal" sont correctes
     expected_values = test_data['sepal_length'] + test_data['sepal_width']
-    assert data_with_total_sepal['total_sepal'].equals(expected_values), "Les valeurs dans la colonne 'total_sepal' ne sont pas correctes."
+    assert data_with_total_sepal['total_sepal'].equals(expected_values), "Valeurs de 'total_sepal' non correctes."
+
 
 def test_create_total_petal_column():
     # Crée un DataFrame de test avec 50 lignes
@@ -97,4 +102,4 @@ def test_create_total_petal_column():
 
     # Vérifie que les valeurs dans la colonne "total_petal" sont correctes
     expected_values = test_data['petal_length'] + test_data['petal_width']
-    assert data_with_total_petal['total_petal'].equals(expected_values), "Les valeurs dans la colonne 'total_petal' ne sont pas correctes."
+    assert data_with_total_petal['total_petal'].equals(expected_values), "Valeurs de 'total_petal' non correctes."
